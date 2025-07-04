@@ -53,7 +53,7 @@ function MagneticSocialLink({
 export default function Personal() {
   return (
     <motion.main
-      className="space-y-24"
+      className="space-y-16 sm:space-y-20 lg:space-y-24 px-4 sm:px-0"
       variants={VARIANTS_CONTAINER}
       initial="hidden"
       animate="visible"
@@ -61,16 +61,8 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <div className="flex-1">
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Software Engineer who enjoys writing clean, reliable code and solving real problems. I am currently focused on back-end development with .NET Core and C#, and I often work with Next.js/React on the front-end. I am always exploring new areas—from system design to AI—to grow as a developer. I care about building things that work well, scale smoothly, and actually help people. Still learning every day and loving the journey.
-          </p>
-        </div>      </motion.section>      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Education</h3>
-        <div className="flex flex-col space-y-2">
+        <h3 className="mb-4 sm:mb-5 text-lg font-medium">Education</h3>
+        <div className="flex flex-col space-y-3">
           {EDUCATION.map((edu, index) => (
             <div
               className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
@@ -80,17 +72,17 @@ export default function Personal() {
                 className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
                 size={64}
               />
-              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                  <div>
-                    <h4 className="font-normal text-zinc-900 dark:text-zinc-100">
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 sm:p-5 dark:bg-zinc-950">
+                <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="flex-1">
+                    <h4 className="font-normal text-zinc-900 dark:text-zinc-100 text-sm sm:text-base">
                       {edu.degree}
                     </h4>
-                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                    <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
                       {edu.institution}
                     </p>
                   </div>
-                  <span className="text-sm text-zinc-600 dark:text-zinc-400">
+                  <span className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 self-start sm:self-auto">
                     {edu.period}
                   </span>
                 </div>
@@ -104,11 +96,11 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
-        <div className="flex flex-col space-y-2">
+        <h3 className="mb-4 sm:mb-5 text-lg font-medium">Work Experience</h3>
+        <div className="flex flex-col space-y-3">
           {WORK_EXPERIENCE.map((job) => (
             <a
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30 transition-transform hover:scale-[1.02]"
               href={job.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -118,17 +110,17 @@ export default function Personal() {
                 className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
                 size={64}
               />
-              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
-                <div className="relative flex w-full flex-row justify-between">
-                  <div>
-                    <h4 className="font-normal dark:text-zinc-100">
+              <div className="relative h-full w-full rounded-[15px] bg-white p-4 sm:p-5 dark:bg-zinc-950">
+                <div className="flex flex-col space-y-2 sm:space-y-0 sm:flex-row sm:justify-between">
+                  <div className="flex-1">
+                    <h4 className="font-normal dark:text-zinc-100 text-sm sm:text-base">
                       {job.title}
                     </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
+                    <p className="text-zinc-500 dark:text-zinc-400 text-xs sm:text-sm">
                       {job.company}
                     </p>
                   </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
+                  <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm self-start sm:self-auto">
                     {job.start} - {job.end}
                   </p>
                 </div>
@@ -142,9 +134,9 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
+        <h3 className="mb-4 sm:mb-5 text-lg font-medium">Selected Projects</h3>
 
-        <div className="mx-auto grid max-w-[800px] grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="mx-auto grid max-w-[900px] grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
           {PROJECTS.map((project, index) => (
             <ProjectCard
               key={index}
@@ -161,12 +153,12 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Technical Skills</h3>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <h3 className="mb-4 sm:mb-5 text-lg font-medium">Technical Skills</h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {TECHNICAL_SKILLS.map((skill, index) => (
-            <div key={index} className="rounded-2xl bg-zinc-50 p-4 dark:bg-zinc-900/50">
-              <h4 className="mb-2 font-medium text-zinc-900 dark:text-zinc-100">{skill.category}</h4>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+            <div key={index} className="rounded-2xl bg-zinc-50 p-4 sm:p-5 dark:bg-zinc-900/50 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-900/70">
+              <h4 className="mb-2 font-medium text-zinc-900 dark:text-zinc-100 text-sm sm:text-base">{skill.category}</h4>
+              <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                 {skill.skills}
               </p>
             </div>
@@ -215,14 +207,14 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Connect</h3>
-        <p className="mb-5 text-zinc-600 dark:text-zinc-400">
+        <h3 className="mb-4 sm:mb-5 text-lg font-medium">Connect</h3>
+        <p className="mb-4 sm:mb-5 text-zinc-600 dark:text-zinc-400 text-sm sm:text-base">
           Feel free to contact me at{' '}
-          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
+          <a className="underline dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors" href={`mailto:${EMAIL}`}>
             {EMAIL}
           </a>
         </p>
-        <div className="flex items-center justify-start space-x-3">
+        <div className="flex flex-wrap items-center justify-start gap-3">
           {SOCIAL_LINKS.map((link) => (
             <MagneticSocialLink key={link.label} link={link.link}>
               {link.label}

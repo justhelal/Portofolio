@@ -45,7 +45,7 @@ export const EDUCATION = [
   {
     degree: 'Bachelor of Computer Science',
     institution: 'Fayoum University, Egypt',
-    period: 'Expected May 2025',
+    period: 'Sept 2021 - June 2025',
   },
 ]
 
@@ -133,29 +133,22 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     id: 'work1',
   },
   {
-    company: 'Coach Academy',
-    title: 'Competitive Programming Trainee',
-    start: 'May 2021',
-    end: 'Aug 2023',
-    link: '',
-    id: 'work2',
-  },
-  {
     company: 'Google DSC Fayoum University',
     title: 'Problem-Solving Mentor',
     start: 'Feb 2023',
     end: 'May 2023',
     link: '',
-    id: 'work3',
+    id: 'work2',
   },
   {
-    company: 'Enactus FSB',
-    title: 'Design Member',
-    start: 'Aug 2021',
-    end: 'Feb 2022',
+    company: 'Coach Academy',
+    title: 'Competitive Programming Trainee',
+    start: 'May 2021',
+    end: 'Aug 2023',
     link: '',
-    id: 'work4',
+    id: 'work3',
   },
+  
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
