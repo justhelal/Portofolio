@@ -1,84 +1,145 @@
 'use client'
 
-import { TextEffect } from '@/components/ui/text-effect'
+import { Icons } from '@/components/icons'
 import Link from 'next/link'
 import Image from 'next/image'
-import {  Copy, Check } from 'lucide-react'
+import { Copy, Check, ArrowRight } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
-
+const socialLinks = [
+	{
+		href: 'https://github.com/justhelal',
+		icon: <Icons.github className="w-5 h-5" />,
+		label: 'GitHub',
+	},
+	{
+		href: 'https://twitter.com/jsthelal',
+		icon: <Icons.x className="w-5 h-5" />,
+		label: 'Twitter',
+	},
+	{
+		href: 'https://www.linkedin.com/in/hazemhelal',
+		icon: <Icons.linkedin className="w-5 h-5" />,
+		label: 'LinkedIn',
+	},
+	{
+		href: 'https://leetcode.com/u/hazemhelal',
+		icon: <Icons.globe className="w-5 h-5" />,
+		label: 'LeetCode',
+	},
+]
 
 export function Header() {
-  const pathname = usePathname()
-  const [copied, setCopied] = useState(false)
-  const isBlogPost = pathname.startsWith('/blog/')
+	const pathname = usePathname()
+	const [copied, setCopied] = useState(false)
+	const isBlogPost = pathname.startsWith('/blog/')
 
-  const handleCopy = () => {
-    // Get the full URL including the domain
-    const fullUrl = window.location.href
-    navigator.clipboard.writeText(fullUrl)
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+	const handleCopy = () => {
+		const fullUrl = window.location.href
+		navigator.clipboard.writeText(fullUrl)
+		setCopied(true)
+		setTimeout(() => setCopied(false), 2000)
+	}
 
-  return (
-    <>
-      <header className="mb-16 sm:mb-20 lg:mb-24 flex flex-col sm:flex-row items-center sm:items-center justify-between gap-6">
-        <div className="flex flex-col sm:flex-row-reverse items-center sm:items-center gap-2 flex-1 text-center sm:text-left">
-          <Image
-            alt="Hazem's avatar"
-            src="/avatar.jpg"
-            className="aspect-square rounded-full object-cover grayscale hover:grayscale-0 transition-all duration-300"
-            width={140}
-            height={140}
-            priority
-          />
-
-          <div className="flex-1">
-            <Link href="/" className="font-medium text-black dark:text-white text-xl sm:text-2xl block">
-              Hazem Helal
-            </Link>
-            <TextEffect
-              as="p"
-              preset="fade"
-              per="char"
-              className="text-zinc-600 dark:text-zinc-500 text-base sm:text-lg"
-              delay={0.5}
-            >
-              Software Engineer
-            </TextEffect>
-            <TextEffect
-              as="p"
-              preset="fade"
-              per="char"
-              className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mt-2 max-w-md mx-auto sm:mx-0"
-              delay={1.5}
-            >
-              Building clean, scalable solutions with .NET Core and React. Passionate about solving real problems and continuous learning.
-            </TextEffect>
+	return (
+		<header className="mb-16 sm:mb-20 lg:mb-24">
+			<motion.div
+				className="flex flex-col sm:flex-row items-start gap-8"
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.5 }}
+			>
+				{/* Avatar */}
+				<motion.div
+					className="flex-shrink-0"
+					whileHover={{ scale: 1.05 }}
+					transition={{ type: 'spring', stiffness: 300 }}
+				>
+					<div className="relative w-32 h-32 sm:w-48 sm:h-48">
+            <Image
+              alt="Hazem Helal"
+              src="/avatar.jpg"
+              fill
+              className="rounded-full object-cover shadow-lg border-4 border-white dark:border-zinc-900"
+            />
           </div>
-        </div>
 
-        <div className="flex items-center gap-3 sm:gap-4 self-end sm:self-auto">
-          {isBlogPost && (
-            <button
-              onClick={handleCopy}
-              className="flex items-center justify-center rounded-full p-2 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800"
-              aria-label="Copy blog link"
-            >
-              {copied ? (
-                <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
-              ) : (
-                <Copy className="h-4 w-4 sm:h-5 sm:w-5 text-zinc-600 dark:text-zinc-400" />
-              )}
-            </button>
-          )}
-        </div>
-      </header>
-    </>
-  )
+				</motion.div>
+
+				{/* Content */}
+				<div className="flex-1 min-w-0">
+					{/* Name and Title */}
+					<div className="mb-5">
+						<h1 className="font-bold text-zinc-900 dark:text-zinc-100 text-3xl sm:text-4xl leading-tight tracking-tight">
+							Hazem Helal
+						</h1>
+
+						<h2 className="text-zinc-600 dark:text-zinc-400 text-lg sm:text-xl font-medium mt-1">
+							Software Engineer
+						</h2>
+
+						<p className="text-zinc-500 dark:text-zinc-500 text-base mt-3 leading-relaxed max-w-4xl">
+             Learning backend development with .NET Core and Nest. I enjoy solving problems, exploring new tech, and building projects that actually work.
+            </p>
+					</div>
+
+					{/* Contact Section */}
+					<div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+						{/* Social Links */}
+						<div className="flex items-center gap-2">
+							{socialLinks.map((social, index) => (
+								<motion.a
+									key={social.label}
+									href={social.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="p-2 text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+									aria-label={social.label}
+									initial={{ opacity: 0, y: 10 }}
+									animate={{ opacity: 1, y: 0 }}
+									transition={{ delay: 0.5 + index * 0.1 }}
+									whileHover={{ scale: 1.1 }}
+								>
+									{social.icon}
+								</motion.a>
+							))}
+						</div>
+
+						{/* Action Buttons */}
+						<div className="flex items-center gap-3">
+							<motion.a
+								href="/resume.pdf"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="group inline-flex items-center justify-center px-4 py-2 bg-zinc-900 dark:bg-zinc-50 text-white dark:text-zinc-900 text-sm font-semibold rounded-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-colors"
+								initial={{ opacity: 0, y: 10 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ delay: 1.0 }}
+								whileHover={{ scale: 1.05 }}
+							>
+								Resume
+								<ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+							</motion.a>
+
+							<motion.a
+								href="mailto:hazemhelal.se@gmail.com"
+								className="px-4 py-2 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-zinc-100 text-sm font-semibold rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+								initial={{ opacity: 0, y: 10 }}
+								animate={{ opacity: 1, y: 0 }}
+								transition={{ delay: 1.1 }}
+								whileHover={{ scale: 1.05 }}
+							>
+								Contact
+							</motion.a>
+						</div>
+					</div>
+				</div>
+			</motion.div>
+		</header>
+	)
 }
 
 export default Header
