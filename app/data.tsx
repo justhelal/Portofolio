@@ -23,20 +23,24 @@ export const TRANSITION_SECTION = {
 // Technical Skills Data
 export const TECHNICAL_SKILLS = [
   {
-    category: 'Languages',
-    skills: 'C#, C++, SQL, JavaScript',
+    category: 'Programming Languages',
+    skills: 'C++, C#, JavaScript, TypeScript',
   },
   {
-    category: 'Technologies',
-    skills: '.NET 9, EF Core, MS SQL Server, NextJS, Tailwind CSS, RabbitMQ, MassTransit',
+    category: 'Frameworks & Tools',
+    skills: '.NET Core, Entity Framework Core, Next.js, RabbitMQ, Redis, Azure, Git, GitHub, Postman',
   },
   {
-    category: 'Tools',
-    skills: 'Git, GitHub, Postman, Swagger/OpenAPI, Visual Studio, VS Code, Docker',
+    category: 'Databases',
+    skills: 'SQL Server, SQL Lite, MySQL',
   },
   {
-    category: 'Concepts',
-    skills: 'Microservices, REST APIs, OOP, Design Patterns, Data Structures & Algorithms, Databases, Problem-Solving',
+    category: 'Technical Skills',
+    skills: 'RESTful APIs, Dependency Injection, JWT Authentication, Microservices, Data Structures & Algorithms, Software Engineering Principles',
+  },
+  {
+    category: 'Soft Skills',
+    skills: 'Team Leadership, Mentoring, Collaboration, Problem-Solving',
   },
 ]
 
@@ -85,12 +89,12 @@ type SocialLink = {
 
 export const PROJECTS = [
   {
-    title: 'CineMate',
+    title: 'CineMate (Graduation Project)',
     href: 'https://github.com/Cinemate-GP',
     active: true,
     description:
-      'Led project team as main .NET backend developer. Built a movie platform with NextJS frontend and .NET Web API backend featuring social features like follow/unfollow, activity feeds, and comments. Implemented movie recommendation system using user data and content analysis, plus NLP system for review sentiment analysis.',
-    technologies: ['.NET 8', 'NextJS', 'Web API', 'NLP', 'Recommendation System'],
+      'Led a team to achieve a full mark for a personalized movie recommendation platform, overseeing backend (.NET 8) and frontend (Next.js) development. Developed .NET Web API backend, designing entities, seeding a database with 87,000 movies, and integrating external APIs for real-time movie updates. Enhanced Next.js frontend with streaming features, social media components (feeds, followers), and UI improvements, transforming the project to professional quality. Implemented a machine learning hybrid recommendation system and scraped data to populate the platform, deployed on Azure.',
+    technologies: ['.NET 8', 'Next.js', 'Azure', 'Machine Learning'],
     image: '/static/images/CineMate.png',
     links: [
       {
@@ -106,12 +110,12 @@ export const PROJECTS = [
     ],
   },
   {
-    title: 'Therapist-Patient Platform',
+    title: 'Therapist Platform',
     href: 'https://github.com/justhelal/TherapistPlatform',
     active: true,
     description:
-      'Developed two microservice APIs for therapist and patient management using Clean Architecture, EF Core, and SQL Server. Implemented event-driven communication with MassTransit and RabbitMQ for scalable, decoupled service interactions with layered architecture for maintainability.',
-    technologies: ['.NET 9', 'SQL Server', 'Clean Architecture', 'MassTransit', 'RabbitMQ'],
+      'Built microservices using .NET 9 and Entity Framework Core with SQL Server, enabling therapist-patient interactions. Implemented event-driven communication using RabbitMQ for efficient service integration.',
+    technologies: ['.NET 9', 'SQL Server', 'RabbitMQ'],
     image: '/static/images/therapist.png',
     links: [
       {
@@ -126,8 +130,8 @@ export const PROJECTS = [
     href: 'https://github.com/justhelal/TalabatAPIs',
     active: true,
     description:
-      'Developed an API platform using .NET Core to allow vendors to manage stores, menus, and orders on the Talabat system. Implemented Redis caching to boost performance and reduce redundant database calls. Designed scalable endpoints with clean architecture for maintainability.',
-    technologies: ['.NET 8', 'SQL Server', 'Onion Architecture', 'Redis'],
+      'Developed CRUD APIs for store, menu, and order management using .NET 8, with Dependency Injection, Controllers, and JWT authentication. Managed data with EF Core, using DTOs & AutoMapper, and optimized performance with Redis caching and async queries. Enhanced APIs with Swagger documentation, pagination, filtering, and scalable middleware for maintainability.',
+    technologies: ['.NET 8', 'SQL Server', 'Redis'],
     image: '/static/images/talabat.png',
     links: [
       {
@@ -142,7 +146,7 @@ export const PROJECTS = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Route',
-    title: 'Backend Training',
+    title: 'Backend Trainee',
     start: 'Oct 2024',
     end: 'May 2025',
     link: '',
@@ -154,12 +158,11 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
 export const EXPERIENCE_DETAILS = [
   {
     company: 'Route',
-    role: 'Backend Training',
+    role: 'Backend Trainee',
     period: 'Oct 2024 – May 2025',
     description: [
-      'Built backend services with .NET Core and C#, following Clean Architecture for maintainability and scalability.',
-      'Developed RESTful APIs using ASP.NET MVC/Web API and Entity Framework Core with SQL Server.',
-      'Implemented design patterns, consistent API responses, error handling, and audit logging (soft delete) to improve reliability.',
+      'Developed backend services using .NET Core and C#, creating functional and maintainable code through practical projects.',
+      'Built and tested RESTful APIs with ASP.NET MVC and Entity Framework Core, integrating with SQL Server to manage data effectively.',
     ],
     id: 'exp1',
   },
