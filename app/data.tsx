@@ -24,19 +24,19 @@ export const TRANSITION_SECTION = {
 export const TECHNICAL_SKILLS = [
   {
     category: 'Languages',
-    skills: 'C#, C++, JavaScript, TypeScript, Python, SQL',
+    skills: 'C#, C++, SQL, JavaScript',
   },
   {
     category: 'Technologies',
-    skills: '.NET Core, Entity Framework, React.js, Next.js, Tailwind CSS',
+    skills: '.NET 9, EF Core, MS SQL Server, NextJS, Tailwind CSS, RabbitMQ, MassTransit',
   },
   {
-    category: 'Tools & Platforms',
-    skills: 'Git, GitHub, Docker, Postman, Visual Studio, VS Code',
+    category: 'Tools',
+    skills: 'Git, GitHub, Postman, Swagger/OpenAPI, Visual Studio, VS Code, Docker',
   },
   {
-    category: 'Specializations',
-    skills: 'Competitive Programming, Algorithm Design, Backend Architecture',
+    category: 'Concepts',
+    skills: 'Microservices, REST APIs, OOP, Design Patterns, Data Structures & Algorithms, Databases, Problem-Solving',
   },
 ]
 
@@ -44,8 +44,8 @@ export const TECHNICAL_SKILLS = [
 export const EDUCATION = [
   {
     degree: 'Bachelor of Computer Science',
-    institution: 'Fayoum University, Egypt',
-    period: 'Sept 2021 - June 2025',
+    institution: 'Fayoum University',
+    period: 'Class of 2025',
   },
 ]
 
@@ -55,6 +55,22 @@ type WorkExperience = {
   start: string
   end: string
   link: string
+  id: string
+}
+
+type Activity = {
+  organization: string
+  role: string
+  description: string
+  id: string
+}
+
+type ExperienceDetail = {
+  company: string
+  role: string
+  period: string
+  location: string
+  description: string[]
   id: string
 }
 
@@ -72,51 +88,46 @@ type SocialLink = {
 
 export const PROJECTS = [
   {
-    title: 'CineMate - Movie Recommendation System',
+    title: 'CineMate',
     href: 'https://github.com/Cinemate-GP',
     active: true,
     description:
-      'Movie streaming platform with personalized recommendations and social features. Built with NextJS frontend and .NET Web API backend, featuring user activity feeds, comments, and NLP-powered review sentiment analysis.',
-    technologies: ['.NET Core', 'NextJS', 'Web API', 'NLP', 'Flask', 'Azure', 'Recommendation System'],
+      'Led project team as main .NET backend developer. Built a movie platform with NextJS frontend and .NET Web API backend featuring social features like follow/unfollow, activity feeds, and comments. Implemented movie recommendation system using user data and content analysis, plus NLP system for review sentiment analysis.',
+    technologies: ['.NET 8', 'NextJS', 'Web API', 'NLP', 'Recommendation System'],
     links: [
       {
         type: 'Source',
         href: 'https://github.com/Cinemate-GP',
         icon: <Icons.github className="size-3" />,
       },
-      {
-        type: 'Demo',
-        href: 'https://cinemate-eosin.vercel.app',
-        icon: <Icons.globe className="size-3" />,
-      },
     ],
   },
   {
-    title: 'Talabat APIs',
-    href: 'https://github.com/justhelal/TalabatAPIs',
+    title: 'Therapist-Patient Platform',
+    href: 'https://github.com/justhelal/Therapist-Patient-Platform',
     active: true,
     description:
-      'Integration platform API that enables vendors to manage stores, menus, and orders on the Talabat platform. Built with .NET Core and optimized with Redis caching.',
-    technologies: ['.NET Core', 'C#', 'SQL Server', 'Redis'],
+      'Developed two microservice APIs for therapist and patient management using Clean Architecture, EF Core, and SQL Server. Implemented event-driven communication with MassTransit and RabbitMQ for scalable, decoupled service interactions with layered architecture for maintainability.',
+    technologies: ['.NET 9', 'SQL Server', 'Clean Architecture', 'MassTransit', 'RabbitMQ'],
     links: [
       {
         type: 'Source',
-        href: 'https://github.com/justhelal/TalabatAPIs',
+        href: 'https://github.com/justhelal/Therapist-Patient-Platform',
         icon: <Icons.github className="size-3" />,
       },
     ],
   },
   {
-    title: 'PlayFolio',
-    href: 'https://github.com/justhelal/PlayFolio',
+    title: 'Talabat API',
+    href: 'https://github.com/justhelal/TalabatAPIs',
     active: true,
     description:
-      'Responsive game catalog application with search and filtering functionality. Integrates RAWG API to display game details and ratings, optimized with code-splitting and lazy loading.',
-    technologies: ['ReactJS', 'Tailwind CSS', 'RAWG API', 'JavaScript'],
+      'Developed an API platform using .NET Core to allow vendors to manage stores, menus, and orders on the Talabat system. Implemented Redis caching to boost performance and reduce redundant database calls. Designed scalable endpoints with clean architecture for maintainability.',
+    technologies: ['.NET 8', 'SQL Server', 'Onion Architecture', 'Redis'],
     links: [
       {
         type: 'Source',
-        href: 'https://github.com/justhelal/PlayFolio',
+        href: 'https://github.com/justhelal/TalabatAPIs',
         icon: <Icons.github className="size-3" />,
       },
     ],
@@ -126,29 +137,44 @@ export const PROJECTS = [
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Route',
-    title: 'Backend Trainee',
+    title: 'Backend Training',
     start: 'Oct 2024',
     end: 'May 2025',
     link: '',
     id: 'work1',
   },
+]
+
+// Experience Details
+export const EXPERIENCE_DETAILS = [
   {
-    company: 'Google DSC Fayoum University',
-    title: 'Problem-Solving Mentor',
-    start: 'Feb 2023',
-    end: 'May 2023',
-    link: '',
-    id: 'work2',
+    company: 'Route',
+    role: 'Backend Training',
+    period: 'Oct 2024 – May 2025',
+    location: 'Giza, Egypt',
+    description: [
+      'Built backend applications using .NET Core, applying C#, OOP, MS SQL, and Entity Framework Core to develop efficient systems.',
+      'Designed and implemented structured MVC and API architectures, improving code maintainability and performance.',
+      'Applied design patterns to enhance scalability and optimize database interactions, ensuring robust application development.',
+    ],
+    id: 'exp1',
+  },
+]
+
+// Activities Data
+export const ACTIVITIES = [
+  {
+    organization: 'Google DSC',
+    role: 'Problem-Solving Head',
+    description: 'Led a group of 20+ members, teaching algorithms and problem-solving techniques for LeetCode challenges. Organized coding sessions for competitive programming. Developed structured learning plans covering sorting, recursion, greedy algorithms, and basic dynamic programming.',
+    id: 'activity1',
   },
   {
-    company: 'Coach Academy',
-    title: 'Competitive Programming Trainee',
-    start: 'May 2021',
-    end: 'Aug 2023',
-    link: '',
-    id: 'work3',
+    organization: 'Enactus FSB',
+    role: 'Design Member',
+    description: 'Created visually appealing designs for social media and marketing materials using Adobe Photoshop and Canva. Developed branding content for Enactus projects and events while implementing modern visual storytelling techniques.',
+    id: 'activity2',
   },
-  
 ]
 
 export const BLOG_POSTS: BlogPost[] = [
