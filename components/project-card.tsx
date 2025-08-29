@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 import { Badge } from '@/components/ui/badge'
 import {
@@ -22,27 +23,37 @@ interface Props {
   }[]
 }
 
-export function ProjectCard({ title, description, tags, links }: Props) {
+export function ProjectCard({ title, description, tags, links, image }: Props) {
   return (
     <Card
       className={
-        'flex h-full flex-col gap-3 overflow-hidden border p-2 transition-all duration-300 ease-out hover:shadow-lg'
+        'flex h-full flex-col overflow-hidden rounded-lg border transition-all duration-300 ease-out hover:shadow-lg'
       }
     >
-      <CardHeader className="px-2">
+      {image && (
+        <div className="relative h-40 w-full">
+          <Image
+            src={image}
+            alt={title}
+            layout="fill"
+            className="object-cover"
+          />
+        </div>
+      )}
+      <CardHeader>
         <div className="space-y-1">
-          <CardTitle className="mt-1 text-base">{title}</CardTitle>
-          <p className="prose text-muted-foreground dark:prose-invert max-w-full font-sans text-xs text-pretty">
+          <CardTitle className="text-base">{title}</CardTitle>
+          <p className="prose text-muted-foreground dark:prose-invert max-w-full font-sans text-sm text-pretty">
             {description}
           </p>
         </div>
       </CardHeader>
-      <CardContent className="mt-auto flex flex-col px-2">
+      <CardContent className="mt-auto flex flex-col">
         {tags && tags.length > 0 && (
           <div className="flex flex-wrap gap-1">
             {tags?.map((tag) => (
               <Badge
-                className="px-1 py-0 text-[9px]"
+                className="px-1 py-0 text-[10px]"
                 variant="secondary"
                 key={tag}
               >
@@ -51,14 +62,15 @@ export function ProjectCard({ title, description, tags, links }: Props) {
             ))}
           </div>
         )}
-      </CardContent>      <CardFooter className="px-2 pb-2">
+      </CardContent>
+      <CardFooter>
         {links && links.length > 0 && (
-          <div className="flex flex-row flex-wrap items-start gap-1">
+          <div className="flex flex-row flex-wrap items-start gap-2">
             {links
               ?.filter((link) => link.href && link.href.trim() !== '') // Filter out empty/null demo links
               ?.map((link, idx) => (
                 <Link href={link?.href} key={idx} target="_blank">
-                  <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
+                  <Badge key={idx} className="flex gap-2 px-2 py-1 text-xs">
                     {link.icon}
                     {link.type}
                   </Badge>

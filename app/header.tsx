@@ -47,30 +47,13 @@ export function Header() {
 	return (
 		<header className="mb-16 sm:mb-20 lg:mb-24">
 			<motion.div
-				className="flex flex-col sm:flex-row items-start gap-8"
+				className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6"
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5 }}
 			>
-				{/* Avatar */}
-				<motion.div
-					className="flex-shrink-0"
-					whileHover={{ scale: 1.05 }}
-					transition={{ type: 'spring', stiffness: 300 }}
-				>
-					<div className="relative w-32 h-32 sm:w-48 sm:h-48">
-            <Image
-              alt="Hazem Helal"
-              src="/avatar.jpg"
-              fill
-              className="rounded-full object-cover shadow-lg border-4 border-white dark:border-zinc-900"
-            />
-          </div>
-
-				</motion.div>
-
 				{/* Content */}
-				<div className="flex-1 min-w-0">
+				<div className="flex-1 min-w-0 order-2 sm:order-1">
 					{/* Name and Title */}
 					<div className="mb-5">
 						<h1 className="font-bold text-zinc-900 dark:text-zinc-100 text-3xl sm:text-4xl leading-tight tracking-tight">
@@ -81,13 +64,15 @@ export function Header() {
 							Software Engineer
 						</h2>
 
-						<p className="text-zinc-500 dark:text-zinc-500 text-base mt-3 leading-relaxed max-w-4xl">
-             Learning backend development with .NET Core and Nest. I enjoy solving problems, exploring new tech, and building projects that actually work.
-            </p>
+						<p className="text-zinc-500 dark:text-zinc-500 text-base mt-3 leading-relaxed max-w-2xl">
+							Learning backend development with .NET Core and Nest. I enjoy
+							solving problems, exploring new tech, and building projects that
+							actually work.
+						</p>
 					</div>
 
 					{/* Contact Section */}
-					<div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+					<div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-6">
 						{/* Social Links */}
 						<div className="flex items-center gap-2">
 							{socialLinks.map((social, index) => (
@@ -137,6 +122,22 @@ export function Header() {
 						</div>
 					</div>
 				</div>
+
+				{/* Avatar */}
+				<motion.div
+					className="flex-shrink-0 order-1 sm:order-2 self-center sm:self-start"
+					whileHover={{ scale: 1.05 }}
+					transition={{ type: 'spring', stiffness: 300 }}
+				>
+					<div className="relative w-40 h-40 sm:w-56 sm:h-56 lg:w-64 lg:h-64">
+            <Image
+              alt="Hazem Helal"
+              src="/avatar.jpg"
+              fill
+              className="rounded-full object-cover shadow-lg border-4 border-white dark:border-zinc-900"
+            />
+          </div>
+				</motion.div>
 			</motion.div>
 		</header>
 	)

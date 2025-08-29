@@ -45,7 +45,12 @@ export const EDUCATION = [
   {
     degree: 'Bachelor of Computer Science',
     institution: 'Fayoum University',
-    period: 'Class of 2025',
+    period: 'Sep 2021 – Jun 2025',
+    description: [
+      'Core CS coursework: Programming, OOP, Data Structures & Algorithms, Discrete Math, Probability & Statistics, Databases, Software Engineering, Operating Systems, Computer Architecture, AI, Machine Learning, and Computer Networks & Security.',
+      'Participated in ECPC and practiced competitive programming on LeetCode and Codeforces, sharpening problem-solving skills.',
+      'Contributed to the ICPC Club by mentoring peers in algorithms and problem-solving, with a focus on competitive programming.',
+    ],
   },
 ]
 
@@ -58,18 +63,10 @@ type WorkExperience = {
   id: string
 }
 
-type Activity = {
-  organization: string
-  role: string
-  description: string
-  id: string
-}
-
 type ExperienceDetail = {
   company: string
   role: string
   period: string
-  location: string
   description: string[]
   id: string
 }
@@ -94,7 +91,13 @@ export const PROJECTS = [
     description:
       'Led project team as main .NET backend developer. Built a movie platform with NextJS frontend and .NET Web API backend featuring social features like follow/unfollow, activity feeds, and comments. Implemented movie recommendation system using user data and content analysis, plus NLP system for review sentiment analysis.',
     technologies: ['.NET 8', 'NextJS', 'Web API', 'NLP', 'Recommendation System'],
+    image: '/static/images/CineMate.png',
     links: [
+      {
+        type: 'Demo',
+        href: 'https://cinemate-eosin.vercel.app/',
+        icon: <Icons.link className="size-3" />,
+      },
       {
         type: 'Source',
         href: 'https://github.com/Cinemate-GP',
@@ -109,6 +112,7 @@ export const PROJECTS = [
     description:
       'Developed two microservice APIs for therapist and patient management using Clean Architecture, EF Core, and SQL Server. Implemented event-driven communication with MassTransit and RabbitMQ for scalable, decoupled service interactions with layered architecture for maintainability.',
     technologies: ['.NET 9', 'SQL Server', 'Clean Architecture', 'MassTransit', 'RabbitMQ'],
+    image: '/static/images/therapist.png',
     links: [
       {
         type: 'Source',
@@ -124,6 +128,7 @@ export const PROJECTS = [
     description:
       'Developed an API platform using .NET Core to allow vendors to manage stores, menus, and orders on the Talabat system. Implemented Redis caching to boost performance and reduce redundant database calls. Designed scalable endpoints with clean architecture for maintainability.',
     technologies: ['.NET 8', 'SQL Server', 'Onion Architecture', 'Redis'],
+    image: '/static/images/talabat.png',
     links: [
       {
         type: 'Source',
@@ -151,29 +156,12 @@ export const EXPERIENCE_DETAILS = [
     company: 'Route',
     role: 'Backend Training',
     period: 'Oct 2024 – May 2025',
-    location: 'Giza, Egypt',
     description: [
-      'Built backend applications using .NET Core, applying C#, OOP, MS SQL, and Entity Framework Core to develop efficient systems.',
-      'Designed and implemented structured MVC and API architectures, improving code maintainability and performance.',
-      'Applied design patterns to enhance scalability and optimize database interactions, ensuring robust application development.',
+      'Built backend services with .NET Core and C#, following Clean Architecture for maintainability and scalability.',
+      'Developed RESTful APIs using ASP.NET MVC/Web API and Entity Framework Core with SQL Server.',
+      'Implemented design patterns, consistent API responses, error handling, and audit logging (soft delete) to improve reliability.',
     ],
     id: 'exp1',
-  },
-]
-
-// Activities Data
-export const ACTIVITIES = [
-  {
-    organization: 'Google DSC',
-    role: 'Problem-Solving Head',
-    description: 'Led a group of 20+ members, teaching algorithms and problem-solving techniques for LeetCode challenges. Organized coding sessions for competitive programming. Developed structured learning plans covering sorting, recursion, greedy algorithms, and basic dynamic programming.',
-    id: 'activity1',
-  },
-  {
-    organization: 'Enactus FSB',
-    role: 'Design Member',
-    description: 'Created visually appealing designs for social media and marketing materials using Adobe Photoshop and Canva. Developed branding content for Enactus projects and events while implementing modern visual storytelling techniques.',
-    id: 'activity2',
   },
 ]
 
