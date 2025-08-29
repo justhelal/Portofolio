@@ -107,7 +107,7 @@ export const PROJECTS = [
   },
   {
     title: 'Therapist-Patient Platform',
-    href: 'https://github.com/justhelal/Therapist-Patient-Platform',
+    href: 'https://github.com/justhelal/TherapistPlatform',
     active: true,
     description:
       'Developed two microservice APIs for therapist and patient management using Clean Architecture, EF Core, and SQL Server. Implemented event-driven communication with MassTransit and RabbitMQ for scalable, decoupled service interactions with layered architecture for maintainability.',
@@ -116,7 +116,7 @@ export const PROJECTS = [
     links: [
       {
         type: 'Source',
-        href: 'https://github.com/justhelal/Therapist-Patient-Platform',
+        href: 'https://github.com/justhelal/TherapistPlatform',
         icon: <Icons.github className="size-3" />,
       },
     ],
